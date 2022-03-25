@@ -5,13 +5,13 @@ using MongoDB.Driver;
 namespace Catalog.API.Repositories
 {
     public class ProductRepository : IProductRepository
-	{
+    {
         private readonly ICatalogContext _context;
 
         public ProductRepository(ICatalogContext context)
-		{
+        {
             _context = context;
-		}
+        }
 
         public async Task CreateProduct(Product product)
         {
