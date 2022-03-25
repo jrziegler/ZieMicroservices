@@ -1,11 +1,10 @@
-﻿using System;
-using Catalog.API.Data;
+﻿using Catalog.API.Data;
 using Catalog.API.Entities;
 using MongoDB.Driver;
 
 namespace Catalog.API.Repositories
 {
-	public class ProductRepository : IProductRepository
+    public class ProductRepository : IProductRepository
 	{
         private readonly ICatalogContext _context;
 
@@ -56,4 +55,3 @@ namespace Catalog.API.Repositories
         }
     }
 }
-
