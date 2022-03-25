@@ -8,7 +8,7 @@ namespace Catalog.API.Repositories
 	{
         private readonly ICatalogContext _context;
 
-		public ProductRepository(ICatalogContext context)
+        public ProductRepository(ICatalogContext context)
 		{
             _context = context;
 		}
