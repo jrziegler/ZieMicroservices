@@ -4,25 +4,22 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
-    <PackageReference Include="MongoDB.Driver" Version="2.15.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="MongoDB.Driver" />
-    <None Remove="Entities\" />
-    <None Remove="Data\" />
-    <None Remove="Repositories\" />
     <None Remove="Controllers\" />
+    <None Remove="Entities\" />
+    <None Remove="Microsoft.Extensions.Caching.StackExchangeRedis" />
+    <None Remove="Repositories\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Data\" />
-    <Folder Include="Repositories\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
 </Project>
