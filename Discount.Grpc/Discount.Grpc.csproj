@@ -28,9 +28,9 @@
     <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>
-    <Protobuf Include="Protos\Discount.proto" GrpcServices="">
+    <Protobuf Include="Protos\Discount.proto" GrpcServices="Server">
       <Access></Access>
-      <ProtoCompile></ProtoCompile>
+      <ProtoCompile>true</ProtoCompile>
       <CompileOutputs></CompileOutputs>
       <OutputDir></OutputDir>
       <Generator></Generator>
