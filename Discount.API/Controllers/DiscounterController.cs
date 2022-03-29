@@ -29,7 +29,19 @@ namespace Discount.API.Controllers
             return CreatedAtRoute("GetDiscount", new { productName = coupon.ProductName }, coupon);
         }
 
-        [HttpDelete("{productName", Name = "DeleteDiscount")]
+        [HttpPut]
+        public async Task<ActionResult<Coupon>> UpdateDiscount([FromBody] Coupon coupon)
+        {
+            if (coupon is null)
+                return BadRequest("Argument invalid");
+
+            if (await _repository.UpdateDiscount(coupon))
+                return Ok(coupon);
+
+            return NotFound();
+        }
+
+        [HttpDelete("{productName}", Name = "DeleteDiscount")]
         public async Task<ActionResult<bool>> DeleteDsicount(string productName)
         {
             return Ok(await _repository.DeleteDiscount(productName));

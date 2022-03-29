@@ -24,7 +24,10 @@ namespace Discount.API.Repositories
             var sql = @"SELECT *
                           FROM Coupon
                          WHERE ProductName = @ProductName";
-            var coupon = await connection.QueryFirstOrDefaultAsync<Coupon>(sql, new { ProductName = productName });
+            var coupon = await connection.QueryFirstOrDefaultAsync<Coupon>(sql, new Coupon
+            {
+                ProductName = productName
+            });
 
             if (coupon is null)
             {
@@ -76,6 +79,7 @@ namespace Discount.API.Repositories
 
             var affected = await connection.ExecuteAsync(sql, new Coupon
             {
+                Id = coupon.Id,
                 ProductName = coupon.ProductName,
                 Description = coupon.Description,
                 Amount = coupon.Amount
