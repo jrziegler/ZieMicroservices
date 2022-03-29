@@ -19,11 +19,21 @@
     <None Remove="Npgsql" />
     <None Remove="Entities\" />
     <None Remove="Repositories\" />
+    <None Remove="Protos\Discount.proto" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Protos\" />
     <Folder Include="Services\" />
     <Folder Include="Entities\" />
     <Folder Include="Repositories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Protobuf Include="Protos\Discount.proto" GrpcServices="">
+      <Access></Access>
+      <ProtoCompile></ProtoCompile>
+      <CompileOutputs></CompileOutputs>
+      <OutputDir></OutputDir>
+      <Generator></Generator>
+    </Protobuf>
   </ItemGroup>
 </Project>

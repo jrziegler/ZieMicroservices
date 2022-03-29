@@ -1,5 +1,5 @@
 ﻿using Discount.Grpc.Repositories;
-using Discount.Grpc.Services;
+//using Discount.Grpc.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
