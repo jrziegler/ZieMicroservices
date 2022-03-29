@@ -29,7 +29,7 @@ namespace Discount.Grpc.Services
                     $"Discount with ProductName = {request.ProductName} not found."));
             }
             _logger.LogInformation(
-                "Discount retrieved for ProductName: {productName}, Amount: {amount}",
+                "Discount retrieved for ProductName: {productName}, Amount: {amount}.",
                 coupon.ProductName, coupon.Amount);
 
             var couponModel = _mapper.Map<CouponModel>(coupon);
@@ -41,7 +41,7 @@ namespace Discount.Grpc.Services
             var coupon = _mapper.Map<Coupon>(request.Coupon);
             await _repository.CreateDiscount(coupon);
             _logger.LogInformation(
-                "Discount created for ProductName: {productName}, Amount: {amount}",
+                "Discount created for ProductName: {productName}, Amount: {amount}.",
                 coupon.ProductName, coupon.Amount);
 
             var couponModel = _mapper.Map<CouponModel>(coupon);
@@ -53,7 +53,7 @@ namespace Discount.Grpc.Services
             var coupon = _mapper.Map<Coupon>(request.Coupon);
             await _repository.UpdateDiscount(coupon);
             _logger.LogInformation(
-                "Discount updated for ProductName: {productName}, Amount: {amount}",
+                "Discount updated for ProductName: {productName}, Amount: {amount}.",
                 coupon.ProductName, coupon.Amount);
 
             var couponModel = _mapper.Map<CouponModel>(coupon);
@@ -64,6 +64,9 @@ namespace Discount.Grpc.Services
         {
             var isDeleted = await _repository.DeleteDiscount(request.ProductName);
 
+            if (isDeleted)
+                _logger.LogInformation("Discount for ProductName: {productName} is deleted.", request.ProductName);
+
             var response = new DeleteDiscountResponse
             {
                 Success = isDeleted
@@ -72,4 +75,3 @@ namespace Discount.Grpc.Services
         }
     }
 }
-
